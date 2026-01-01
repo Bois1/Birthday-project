@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Reminder</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; }
+    input, button { padding: 8px; margin: 5px 0; width: 100%; box-sizing: border-box; }
+    h2 { color: #e91e63; }
+    .user { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h2>Add a Birthday Celebrant</h2>
+  <form method="POST">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email (must be unique)" required>
+    <input type="date" name="dob" required>
+    <button type="submit">Add Birthday Celebrant</button>
+  </form>
+
+  <h3>Currently Tracked Birthday Celebrants (<%= users.length %>)</h3>
+  <% if (users.length === 0) { %>
+    <p>No birthdays yet!</p>
+  <% } else { %>
+    <% users.forEach(u => { %>
+      <div class="user">
+        <strong><%= u.name %></strong> — <%= u.email %> — 
+        <%= new Date(u.dob).toLocaleDateString() %>
+      </div>
+    <% }) %>
+  <% } %>
+</body>
+</html>
