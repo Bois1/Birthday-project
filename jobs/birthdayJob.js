@@ -3,7 +3,7 @@ const User = require('../models/User');
 const { sendBirthdayEmail } = require('../services/emailService');
 
 const startBirthdayCronJob = () => {
-  cron.schedule('* * * * *', async () => {
+  cron.schedule('0 7 * * *', async () => {
     console.log('Checking for birthdays today...');
 
     const today = new Date();
