@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('@dotenvx/dotenvx').config()
 const app = require('./app');
 const connectDB = require('./config/db');
 const { startBirthdayCronJob } = require('./jobs/birthdayJob');
